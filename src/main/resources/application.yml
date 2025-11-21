@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  #liquibase:
+    #enabled: true
+    #change-log: classpath:db/changelog/db.changelog-master.yaml
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: ${APP_PORT}
+
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
+  expiration: 86400000
+
+data-loader:
+  default-email-admin:${DEFAULT_EMAIL_ADMIN}
+  default-user-psw:${DEFAULT_USER_PSW}
